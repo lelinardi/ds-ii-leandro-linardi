@@ -1,0 +1,53 @@
+# Lista p/ aramzenar Usuários como Tuplas
+users = []
+
+while True:
+    print("\n=== Novo Cadastro de Usuário ===") # LL
+    first_name = input("Entrar com o Nome: ") # LL
+    last_name = input("Entrar com o Sobrenome: ") # LL
+    
+    while True:
+        age_input = input("Entrar com a Idade: ") # LL
+        if age_input.isdigit():
+            age = int(age_input)
+            break
+        else:
+            print("Por favor, entrar com um número válido para 'idade'.") # LL
+    
+    # Criar Usuário e anexá-lo à Lista
+    user = (first_name, last_name, age)
+    users.append(user)
+
+    # Perguntar se quer Adicionar mais Usuários
+    more = input("Você quer cadastrar um novo Usuário? (s/n): ").strip().lower() # LL
+    if more != "s": # LL
+        break
+# Preparar para encontrar Usuários duplicados (pelo Nome + Sobrenome)
+full_name_list = []
+duplicates = {}
+
+for user in users:
+    name_only = (user[0], user[1])  # Tupla de (first_name, last_name)
+    
+    # Contar quantas vezes o nome completo (ignorando a idade) aparece
+    same_name_count = 0
+    for u in users:
+        if u[0] == user[0] and u[1] == user[1]:
+            same_name_count += 1
+
+    # Se o nome completo aparece mais de uma vez, ele está duplicado
+    if same_name_count > 1 and name_only not in full_name_list:
+        full_name_list.append(name_only)
+        duplicates[name_only] = same_name_count
+
+# Resultados (Output)
+print("\n=== Resumo ===") # LL
+print(f"Total de Usuários cadastrados: {len(users)}") # LL
+print(f"Total de Usuários duplicados (Considerando mesmo 'Nome' e 'Sobrenome'): {len(duplicates)}") # LL
+
+if duplicates:
+    print("Usuários Duplicados:") # LL
+    for dup, count in duplicates.items():
+        print(f"- {dup[0]} {dup[1]} ({count} vezes cadastrado)") # LL
+else:
+    print("Nenhum Usuário Duplicado encontrado.") # LL
