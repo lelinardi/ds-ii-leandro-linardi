@@ -1,0 +1,8 @@
+use etecDB;
+CREATE TABLE Cadastro (
+  IDNome INT AUTO_INCREMENT PRIMARY KEY,
+  Nome VARCHAR(50),
+  Sobrenome VARCHAR(50),
+  Idade VARCHAR(2), -- Atenção aqui, veja a nota abaixo
+  Sexo CHAR(1)
+);
