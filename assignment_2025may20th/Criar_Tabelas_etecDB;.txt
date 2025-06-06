@@ -6,3 +6,5 @@ CREATE TABLE Cadastro (
   Idade VARCHAR(2), -- Atenção aqui, veja a nota abaixo
   Sexo CHAR(1)
 );
+
+Move Criar_Tabelas_etecDB.txt to assignment_2025may20th folder
