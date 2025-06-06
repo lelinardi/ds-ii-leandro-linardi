@@ -51,3 +51,5 @@ if duplicates:
         print(f"- {dup[0]} {dup[1]} ({count} vezes cadastrado)") # LL
 else:
     print("Nenhum Usuário Duplicado encontrado.") # LL
+
+Move python_user_signUp_v2.txt to assignment_2025apr14th folder
