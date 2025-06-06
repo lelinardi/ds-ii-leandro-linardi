@@ -52,3 +52,5 @@ finally:
         cursor.close()
     if conexao:
         conexao.close()
+
+Move Conexão_mysql.connector.txt to assignment_2025may20th folder
